@@ -12,10 +12,10 @@ public class PessoaDto {
     private String email;
     private String telefone;
     private String profissao;
-    private List<String> cormobidades;
+    private List<String> comorbidades;
     private int situacao;
 
-    public PessoaDto(String nomeCompleto, String CPF, String endereço, String cartaoSus, String email, String telefone, String profissao, List<String> cormobidades, int situacao) {
+    public PessoaDto(String nomeCompleto, String CPF, String endereço, String cartaoSus, String email, String telefone, String profissao, List<String> comorbidades, int situacao) {
         this.nomeCompleto = nomeCompleto;
         this.CPF = CPF;
         this.endereço = endereço;
@@ -23,7 +23,7 @@ public class PessoaDto {
         this.email = email;
         this.telefone = telefone;
         this.profissao = profissao;
-        this.cormobidades = cormobidades;
+        this.comorbidades = comorbidades;
         this.situacao = situacao;
     }
 
@@ -55,8 +55,8 @@ public class PessoaDto {
         return profissao;
     }
 
-    public List<String> getCormobidades() {
-        return cormobidades;
+    public List<String> getComorbidades() {
+        return comorbidades;
     }
 
     public int getSituacao() {

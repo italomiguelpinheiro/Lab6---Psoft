@@ -13,20 +13,20 @@ public class PessoaController {
     }
 
     public String cadastrarPessoa(String nomeCompleto, String CPF, String endereço, String cartao, String email,
-            String telefone, String profissao, List<String> cormobidades, int situacao) {
+            String telefone, String profissao, List<String> comorbidades, int situacao) {
 
         PessoaDto pessoaDto = new PessoaDto(nomeCompleto, CPF, endereço, cartao, email, telefone, profissao,
-                cormobidades, situacao);
+                comorbidades, situacao);
         pessoaService.cadastrarPessoa(pessoaDto);
         return "\n==== Pessoa cadastrada com sucesso ====\n";
 
     }
 
     public String updatePessoa(String nomeCompleto, String CPF, String endereço, String cartao, String email,
-            String telefone, String profissao, List<String> cormobidades, int situacao) {
+            String telefone, String profissao, List<String> comorbidades, int situacao) {
 
         PessoaDto pessoaDto = new PessoaDto(nomeCompleto, CPF, endereço, cartao, email, telefone, profissao,
-                cormobidades, situacao);
+                comorbidades, situacao);
 
         pessoaService.updatePessoa(pessoaDto);
         return "==== Pessoa atualizada com sucesso ====\n";

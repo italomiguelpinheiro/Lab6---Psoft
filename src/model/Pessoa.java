@@ -5,19 +5,6 @@ import java.util.Objects;
 import situacao.Situacao;
 
 public class Pessoa {
-    public Pessoa(String nomeCompleto, String CPF, String endereço, String cartaoSus,
-                  String email, String telefone, String profissao,
-                  List<String> cormobidades, Situacao situacao) {
-        this.nomeCompleto = nomeCompleto;
-        this.CPF = CPF;
-        this.endereço = endereço;
-        this.cartaoSus = cartaoSus;
-        this.email = email;
-        this.telefone = telefone;
-        this.profissao = profissao;
-        this.cormobidades = cormobidades;
-        this.situacao = situacao;
-    }
 
     private String nomeCompleto;
     private String CPF;
@@ -26,8 +13,21 @@ public class Pessoa {
     private String email;
     private String telefone;
     private String profissao;
-    private List<String> cormobidades;
+    private List<String> comorbidades;
     private Situacao situacao;
+
+    public Pessoa(String nomeCompleto, String CPF, String endereço, String cartaoSus, String email, String telefone,
+            String profissao, List<String> comorbidades, Situacao situacao) {
+        this.nomeCompleto = nomeCompleto;
+        this.CPF = CPF;
+        this.endereço = endereço;
+        this.cartaoSus = cartaoSus;
+        this.email = email;
+        this.telefone = telefone;
+        this.profissao = profissao;
+        this.comorbidades = comorbidades;
+        this.situacao = situacao;
+    }
 
     public String getCpf() {
         return this.CPF;
@@ -35,8 +35,10 @@ public class Pessoa {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Pessoa pessoa = (Pessoa) o;
         return Objects.equals(CPF, pessoa.CPF);
     }
@@ -60,16 +62,9 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa:" +
-                "nomeCompleto: '" + this.nomeCompleto + '\n' +
-                "CPF: '" + this.CPF + '\n' +
-                "endereço: '" + this.endereço + '\n' +
-                "cartaoSus: '" + this.cartaoSus + '\n' +
-                "email: '" + this.email + '\n' +
-                "telefone: '" + this.telefone + '\n' +
-                "profissao: '" + this.profissao + '\n' +
-                "cormobidades: " + this.cormobidades + '\n' +
-                "situacao: " + this.situacao.getSituacao() 
-                ;
+        return "Pessoa:" + "nomeCompleto: '" + this.nomeCompleto + '\n' + "CPF: '" + this.CPF + '\n' + "endereço: '"
+                + this.endereço + '\n' + "cartaoSus: '" + this.cartaoSus + '\n' + "email: '" + this.email + '\n'
+                + "telefone: '" + this.telefone + '\n' + "profissao: '" + this.profissao + '\n' + "comorbidades: "
+                + this.comorbidades + '\n' + "situacao: " + this.situacao.getSituacao();
     }
 }

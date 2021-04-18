@@ -19,7 +19,7 @@ public class PessoaService {
 
         Pessoa novaPessoa = new Pessoa(pessoaDto.getNomeCompleto(), pessoaDto.getCPF(),
                 pessoaDto.getEndereço(), pessoaDto.getCartaoSus(), pessoaDto.getEmail(),
-                pessoaDto.getTelefone(), pessoaDto.getProfissao(), pessoaDto.getCormobidades(), situacao);
+                pessoaDto.getTelefone(), pessoaDto.getProfissao(), pessoaDto.getComorbidades(), situacao);
 
         pessoaRepository.create(novaPessoa);
     }
@@ -29,7 +29,7 @@ public class PessoaService {
 
         Pessoa pessoaAtualizada = new Pessoa(pessoaDto.getNomeCompleto(), pessoaDto.getCPF(),
                 pessoaDto.getEndereço(), pessoaDto.getCartaoSus(), pessoaDto.getEmail(),
-                pessoaDto.getTelefone(), pessoaDto.getProfissao(), pessoaDto.getCormobidades(), situacao);
+                pessoaDto.getTelefone(), pessoaDto.getProfissao(), pessoaDto.getComorbidades(), situacao);
 
         pessoaRepository.update(pessoaAtualizada);
     }
