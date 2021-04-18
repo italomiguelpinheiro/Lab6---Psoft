@@ -12,60 +12,35 @@ public class PessoaController {
         this.pessoaService = new PessoaService();
     }
 
-    public String cadastrarPessoa(String nomeCompleto, String CPF,
-             String endereço, String cartao, String email,
-             String telefone, String profissao, List<String>cormobidades, int situacao) {
+    public String cadastrarPessoa(String nomeCompleto, String CPF, String endereço, String cartao, String email,
+            String telefone, String profissao, List<String> cormobidades, int situacao) {
 
-        PessoaDto pessoaDto = new PessoaDto(nomeCompleto,  CPF,
-                endereço,  cartao,  email, telefone,
-                profissao, cormobidades, situacao);
+        PessoaDto pessoaDto = new PessoaDto(nomeCompleto, CPF, endereço, cartao, email, telefone, profissao,
+                cormobidades, situacao);
+        pessoaService.cadastrarPessoa(pessoaDto);
+        return "\n==== Pessoa cadastrada com sucesso ====\n";
 
-        try {
-            pessoaService.cadastrarPessoa(pessoaDto);
-            return "Pessoa cadastrada\n";
-        } catch (IllegalAccessException e) {
-            return "Pessoa já cadastrada\n";
-        }
     }
 
+    public String updatePessoa(String nomeCompleto, String CPF, String endereço, String cartao, String email,
+            String telefone, String profissao, List<String> cormobidades, int situacao) {
 
-    public String updatePessoa(String nomeCompleto, String CPF,
-                                  String endereço, String cartao, String email,
-                                  String telefone, String profissao, List<String>cormobidades, int situacao) {
+        PessoaDto pessoaDto = new PessoaDto(nomeCompleto, CPF, endereço, cartao, email, telefone, profissao,
+                cormobidades, situacao);
 
-        PessoaDto pessoaDto = new PessoaDto(nomeCompleto,  CPF,
-                endereço,  cartao,  email, telefone,
-                profissao, cormobidades, situacao);
-
-        try {
-            pessoaService.updatePessoa(pessoaDto);
-            return "Pessoa atualizada\n";
-        } catch (IllegalAccessException e) {
-            return "Pessoa não encontrada\n";
-        }
+        pessoaService.updatePessoa(pessoaDto);
+        return "==== Pessoa atualizada com sucesso ====\n";
     }
 
     public String getPessoa(String cpf) {
-        try {
-            return pessoaService.getPessoa(cpf).toString();
-        } catch (IllegalAccessException e) {
-            return "Pessoa não encontrada\n";
-        }
+        return pessoaService.getPessoa(cpf).toString();
     }
 
     public String getSituacao(String cpf) {
-        try {
-            return pessoaService.getSituacao(cpf);
-        } catch (IllegalAccessException e) {
-            return "Pessoa não encontrada";
-        }
+        return pessoaService.getSituacao(cpf);
     }
 
     public String alterarSituacao(String cpf) {
-        try {
-            return "Alterar situação para: " + pessoaService.alterarSituacao(cpf);
-        } catch (IllegalAccessException e) {
-            return "Pessoa não encontrada";
-        }
+        return "Alterar situação para: " + pessoaService.alterarSituacao(cpf);
     }
 }

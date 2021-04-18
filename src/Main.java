@@ -17,33 +17,35 @@ public class Main {
             int opcao = sc.nextInt();
             sc.nextLine();
 
-            if (opcao == 0) {
-                break;
-            }
+        
 
             if (opcao == 1) {
                 cadastrarPessoa(sc);
                 continue;
             }
 
-            if (opcao == 2) {
+            else if (opcao == 2) {
                 updatePessoa(sc);
                 continue;
             }
 
-            if (opcao == 3) {
+            else if (opcao == 3) {
                 getPessoa(sc);
                 continue;
             }
 
-            if (opcao == 4) {
+            else if (opcao == 4) {
                 getSituacao(sc);
                 continue;
             }
 
-            if (opcao == 5) {
+            else if (opcao == 5){
                 alterarSituacao(sc);
                 continue;
+            }
+
+            else {
+                break;
             }
         }
     }
@@ -56,13 +58,13 @@ public class Main {
                 "[3] Buscar Pessoa\n"  +
                 "[4] Mostrar situacao da Pessoa\n"  +
                 "[5] Alterar situacao da Pessoa\n" +
-                "[0] Finalizar programa");
+                "[6] Finalizar programa");
 
     }
 
 
     private static void cadastrarPessoa(Scanner sc) {
-        System.out.println("Digite o(a)...\n");
+        System.out.println("\nInforme o(a)...");
         System.out.println("1. Nome completo");
         String nomeCompleto = sc.nextLine();
 
@@ -84,18 +86,18 @@ public class Main {
         System.out.println("7. Profissão");
         String profissao = sc.nextLine();
 
-        List<String> cormobidates = obterCormobidates(sc);
+        List<String> cormobidades = obterCormobidates(sc);
 
         int situacao = obterSitucao(sc);
 
-        String resultado = pessoaFacade.cadastrarPessoa(cpf, nomeCompleto, endereco,cartaoSus,
-                email, telefone, profissao, cormobidates, situacao);
+        String p = pessoaFacade.cadastrarPessoa(cpf, nomeCompleto, endereco,cartaoSus,
+                email, telefone, profissao, cormobidades, situacao);
 
-        System.out.println(resultado);
+        System.out.println(p);
     }
 
     private static void updatePessoa(Scanner sc) {
-        System.out.println("1. Digite o cpf");
+        System.out.println("1. Informe o cpf");
         String cpf = sc.nextLine();
 
         System.out.println("2. Nome completo");
@@ -131,7 +133,7 @@ public class Main {
 
 
     private static List<String> obterCormobidates(Scanner sc) {
-        System.out.println("Cormobidades: ");
+        System.out.println("\nComorbidades: ");
         List<String> cormobidades = new ArrayList<>();
 
         int opcao = -1;
@@ -158,7 +160,7 @@ public class Main {
     private static int obterSitucao(Scanner sc) {
         int opcao = -1;
         while (opcao < 1 || opcao > 5) {
-            System.out.println("Situcação inicial:\n");
+            System.out.println("\nSitucação inicial:");
             System.out.println("[1] Nao habilitado para vacina");
             System.out.println("[2] Habilitado para tomar a 1 dose");
             System.out.println("[3] Tomou a 1 dose");

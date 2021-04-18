@@ -9,13 +9,8 @@ import java.util.Map;
 public class PessoaRepository {
     private Map<String, Pessoa> pessoaRepositorio = new HashMap<>();
 
-    public void create(Pessoa novaPessoa) throws IllegalAccessException {
+    public void create(Pessoa novaPessoa){
         Pessoa pessoaJaExistente = findByCpf(novaPessoa.getCpf());
-
-        if (pessoaJaExistente != null) {
-            throw new IllegalAccessException("Pessoa já cadastrada");
-        }
-
         pessoaRepositorio.put(novaPessoa.getCpf(), novaPessoa);
     }
 
@@ -25,13 +20,8 @@ public class PessoaRepository {
     }
 
 
-    public void update(Pessoa pessoaAtualizada) throws IllegalAccessException {
+    public void update(Pessoa pessoaAtualizada){
         Pessoa pessoaJaExistente = findByCpf(pessoaAtualizada.getCpf());
-
-        if (pessoaJaExistente == null) {
-            throw new IllegalAccessException("Pessoa não cadastrada");
-        }
-
         pessoaRepositorio.replace(pessoaAtualizada.getCpf(), pessoaAtualizada);
     }
 

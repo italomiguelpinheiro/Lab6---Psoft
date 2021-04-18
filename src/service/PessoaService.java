@@ -14,7 +14,7 @@ public class PessoaService {
         this.pessoaRepository = new PessoaRepository();
     }
 
-    public void cadastrarPessoa(PessoaDto pessoaDto) throws IllegalAccessException {
+    public void cadastrarPessoa(PessoaDto pessoaDto) {
         Situacao situacao = SituacaoFactory.factorySituacao(pessoaDto.getSituacao());
 
         Pessoa novaPessoa = new Pessoa(pessoaDto.getNomeCompleto(), pessoaDto.getCPF(),
@@ -24,7 +24,7 @@ public class PessoaService {
         pessoaRepository.create(novaPessoa);
     }
 
-    public void updatePessoa(PessoaDto pessoaDto) throws IllegalAccessException {
+    public void updatePessoa(PessoaDto pessoaDto)  {
         Situacao situacao = SituacaoFactory.factorySituacao(pessoaDto.getSituacao());
 
         Pessoa pessoaAtualizada = new Pessoa(pessoaDto.getNomeCompleto(), pessoaDto.getCPF(),
@@ -34,34 +34,27 @@ public class PessoaService {
         pessoaRepository.update(pessoaAtualizada);
     }
 
-    public Pessoa getPessoa(String cpf) throws IllegalAccessException {
+    public Pessoa getPessoa(String cpf){
         Pessoa pessoa = pessoaRepository.findByCpf(cpf);
-        checkPessoa(pessoa);
+
         return pessoa;
     }
 
 
-    public String getSituacao(String cpf) throws IllegalAccessException {
+    public String getSituacao(String cpf){
         Pessoa pessoa = pessoaRepository.findByCpf(cpf);
 
-        if (pessoa != null) {
-            return pessoa.getSitucao();
-        }
-
-        throw new IllegalAccessException("Pessoa não encontrada");
+                    return pessoa.getSitucao();
+        
     }
 
-    public String alterarSituacao(String cpf) throws IllegalAccessException {
+    public String alterarSituacao(String cpf) {
         Pessoa pessoa = pessoaRepository.findByCpf(cpf);
-        checkPessoa(pessoa);
+        
         pessoa.avancarSituacao();
         return pessoa.getSitucao();
     }
 
 
-    private void checkPessoa(Pessoa pessoa) throws IllegalAccessException {
-        if (pessoa == null) {
-            throw new IllegalAccessException("Pessoa não encontrada");
-        }
-    }
+    
 }

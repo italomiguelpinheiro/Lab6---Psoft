@@ -14,7 +14,7 @@ public class NaoHabilitado implements Situacao{
 
     @Override
     public void proxSituacao(Pessoa pessoa) {
-        pessoa.setSituacao(new Dose1());
+        pessoa.setSituacao(new PrimeiraDose());
     }
 
 }

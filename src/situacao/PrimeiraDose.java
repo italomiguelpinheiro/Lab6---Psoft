@@ -2,10 +2,10 @@ package situacao;
 
 import model.Pessoa;
 
-public class Dose1 implements Situacao {
+public class PrimeiraDose implements Situacao {
     private static final String SITUACAO_ATUAL = "Habilitada para tomar a 1 dose";
 
-    public Dose1() {
+    public PrimeiraDose() {
     }
 
     @Override
@@ -15,6 +15,6 @@ public class Dose1 implements Situacao {
 
     @Override
     public void proxSituacao(Pessoa pessoa) {
-        pessoa.setSituacao(new TomouDose1());
+        pessoa.setSituacao(new TomouPrimeiraDose());
     }
 }

@@ -9,15 +9,15 @@ public class SituacaoFactory {
         }
 
         if (idSituacao == 2) {
-            return new Dose1();
+            return new PrimeiraDose();
         }
 
         if (idSituacao == 3) {
-            new TomouDose1();
+            new TomouPrimeiraDose();
         }
 
         if (idSituacao == 4) {
-            return new Dose2();
+            return new SegundaDose();
         }
 
         if (idSituacao == 5) {

@@ -2,8 +2,8 @@ package situacao;
 
 import model.Pessoa;
 
-public class Dose2 implements Situacao{
-    private static final String SITUACAO_ATUAL = "HABILIDATE PARA TOMAR A 2 DOSE";
+public class SegundaDose implements Situacao{
+    private static final String SITUACAO_ATUAL = "Habilitado para tomar a 2 dose";
 
     @Override
     public String getSituacao() {
